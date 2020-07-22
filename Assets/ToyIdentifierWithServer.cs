@@ -102,8 +102,7 @@ public class ToyIdentifierWithServer : MonoBehaviour
         touchList.Add(new Vector2(911.3f, 71.9f));
         touchList.Add(new Vector2(1000.2f, 233.7f));
         touchList.Add(new Vector2(1012.2f, 167.8f));
-        touchList.Add(new Vector2(800.2f, 400.8f));
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             dots[i].transform.position = new Vector3(touchList[i].x, touchList[i].y, 0);
             dots[i].transform.Find("Coord").GetComponent<TextMeshProUGUI>().text = touchList[i].ToString();
@@ -206,7 +205,7 @@ public class ToyIdentifierWithServer : MonoBehaviour
         int ct = Input.touches.Length;
         touchtext.text = "TouchCount: " + ct.ToString();
 
-        if (ct == 4)
+        if (ct == 3)
         {
 
         }
@@ -225,7 +224,7 @@ public class ToyIdentifierWithServer : MonoBehaviour
         //    touchList.Add(new Vector2(400, 200));
         //}
 
-        if (ct == 4 && canUseToy)
+        if (ct == 3 && canUseToy)
         {
             canUseToy = false;
 
