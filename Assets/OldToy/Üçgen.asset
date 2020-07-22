@@ -1,0 +1,21 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e30a7d001a4b2fe43bcb2c619a948c7d, type: 3}
+  m_Name: "\xDC\xE7gen"
+  m_EditorClassIdentifier: 
+  p1x: 36.70995
+  p1y: 19.76808
+  p2x: 4.374646
+  p2y: 57.39971
+  p3x: 45.35271
+  p3y: 49.41488
+  toolName: 12
