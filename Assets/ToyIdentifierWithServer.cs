@@ -43,10 +43,13 @@ public class ToyIdentifierWithServer : MonoBehaviour
     public TMP_InputField inputField;
     public TMP_InputField inputFieldR;
     public TMP_InputField inputFieldRotation;
+    public TMP_InputField inputFieldDpi;
 
     private float errorMargin => float.Parse(inputField.text);
     private float r => float.Parse(inputFieldR.text);
     private float rotationSensivity => float.Parse(inputFieldRotation.text);
+    private float dpi => float.Parse(inputFieldDpi.text);
+
 
     public TextMeshProUGUI errorText;
     public GameObject toyPanel;
@@ -77,7 +80,7 @@ public class ToyIdentifierWithServer : MonoBehaviour
         GetRotateObjects();
 
         audioSource = GetComponent<AudioSource>();
-
+        inputFieldDpi.text = (Screen.dpi / 2.54f).ToString();
         //var currentToyRatios = GetRatiosWithLine(tempDist);
 
         //var a = toolListNew.tools[11];
@@ -428,7 +431,7 @@ public class ToyIdentifierWithServer : MonoBehaviour
 
         var distACcm = Mathf.Sqrt(katsayi - katsayi * Mathf.Cos(2 * angleB));
 
-        ratetext.text = Screen.dpi + "--"+ Screen.dpi/2.54f + " :: " + distAB / distABcm +"--" + distBC / distBCcm + "--" + distAC / distACcm;
+        ratetext.text = Screen.dpi + "--"+ dpi + " :: " + distAB / distABcm +"--" + distBC / distBCcm + "--" + distAC / distACcm;
         List<float> tempDistcm = new List<float>();
 
         tempDistcm.Add(distABcm);
@@ -471,17 +474,16 @@ public class ToyIdentifierWithServer : MonoBehaviour
         var posA = sortedList[0];
         var posB = sortedList[1];
         var posC = sortedList[2];
-        Debug.Log(sortedList.ListPrint());
+
         var distAB = Vector2.Distance(posA, posB);
         var distBC = Vector2.Distance(posB, posC);
         var distAC = Vector2.Distance(posA, posC);
 
         var dpiDistances = new List<float>();
-        var screenDpiForcm = Screen.dpi / 2.54f;
 
-        dpiDistances.Add(distAB / screenDpiForcm);
-        dpiDistances.Add(distBC / screenDpiForcm);
-        dpiDistances.Add(distAC / screenDpiForcm);
+        dpiDistances.Add(distAB / dpi);
+        dpiDistances.Add(distBC / dpi);
+        dpiDistances.Add(distAC / dpi);
 
         var lowestDist = dpiDistances.OrderBy(v => v).First();
         var lowestDistIndex = dpiDistances.FindIndex(e => e == lowestDist);
